@@ -1,17 +1,24 @@
 const express = require("express");
-const { ApolloServer, gql } = require("apollo-server-express");
+const { ApolloServer } = require("apollo-server-express");
+const { typeDefs } = require("./schema");
 
 const app = express();
-const typeDefs = gql`
-  type Query {
-    hello: String
-  }
-`;
 
-// Provide resolver functions for your schema fields
 const resolvers = {
   Query: {
-    hello: () => "Hello world!"
+    movies: () => [],
+    users: () => []
+  },
+  Mutation: {
+    createUser: (_, { username, password }) => ({
+      token: "12345",
+      user: {
+        id: "1",
+        name: "First user",
+        birthday: "1990-12-1",
+        country: "RS"
+      }
+    })
   }
 };
 
@@ -20,7 +27,7 @@ const server = new ApolloServer({ typeDefs, resolvers });
 server.applyMiddleware({ app, path: "/graphql" });
 
 app.get("/", function(req, res) {
-  res.send("Hello World");
+  res.send("Visit /graphql");
 });
 
 const port = 3000;
