@@ -30,7 +30,7 @@ const typeDefs = gql`
     id: ID!
     title: String!
     year: String!
-    rating: Int!
+    rating: Float!
     actors: [Actor]
     directors: [Director]
   }
