@@ -1,4 +1,4 @@
-const { movies, actors, directors } = require("./stubs");
+const { movies, actors, directors, users } = require("./stubs");
 
 const resolvers = {
   Query: {
@@ -8,12 +8,12 @@ const resolvers = {
   Mutation: {
     createUser: (_, { username, password }) => ({
       token: "12345",
-      user: {
-        id: "1",
-        name: "First user",
-        birthday: "1990-12-1",
-        country: "RS"
-      }
+      user: users[0]
+    }),
+
+    loginUser: (_, { username, password }) => ({
+      token: "12345",
+      user: users[0]
     })
   },
 

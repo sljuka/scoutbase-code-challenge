@@ -4,8 +4,6 @@ const typeDefs = gql`
   type User {
     id: ID!
     name: String!
-    birthday: String
-    country: String
     username: String
   }
 
@@ -46,6 +44,7 @@ const typeDefs = gql`
 
   type Mutation {
     createUser(username: String!, password: String!): Session
+    loginUser(username: String!, password: String!): Session
   }
 
   schema {

@@ -1,4 +1,11 @@
 module.exports = {
+  users: [
+    {
+      id: 1,
+      name: "Joe",
+      username: "joe"
+    }
+  ],
   actors: [
     {
       id: 1,
