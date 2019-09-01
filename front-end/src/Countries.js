@@ -7,8 +7,13 @@ export function Countries() {
     {
       countries {
         name
-        code
-        emoji
+        continent {
+          name
+        }
+        languages {
+          name
+          native
+        }
       }
     }
   `);
@@ -18,11 +23,20 @@ export function Countries() {
 
   return (
     <ul>
-      {data.countries.map(({ name, code, emoji }) => (
-        <li key={code}>
-          {name} {code} {emoji}
-        </li>
-      ))}
+      {data.countries.map(
+        ({ name, continent: { name: continentName }, languages }) => (
+          <li key={name}>
+            {name} {continentName}
+            <ul>
+              {languages.map(language => (
+                <li>
+                  {language.native} ({language.name})
+                </li>
+              ))}
+            </ul>
+          </li>
+        )
+      )}
     </ul>
   );
 }
