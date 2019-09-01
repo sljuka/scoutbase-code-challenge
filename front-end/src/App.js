@@ -18,6 +18,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 `;
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
             <Header />
 
             <Route path="/" exact component={Welcome} />
-            <Route path="/countries/" exact component={Countries} />
+            <Route path="/countries/" component={Countries} />
             <Route path="/country/:code" component={Country} />
           </Container>
         </Router>
