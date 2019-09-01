@@ -2,6 +2,7 @@ import React from "react";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
 import { Countries } from "./Countries";
+import { Country } from "./Country";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const client = new ApolloClient({
@@ -9,7 +10,6 @@ const client = new ApolloClient({
 });
 
 const Index = () => <p>Welcome to the countries app</p>;
-const Country = () => <p>Country</p>;
 
 function App() {
   return (
