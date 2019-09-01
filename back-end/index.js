@@ -1,10 +1,14 @@
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
+const cors = require("cors");
 const { typeDefs } = require("./schema");
 const { resolvers } = require("./resolvers");
 const { users } = require("./stubs");
 
 const app = express();
+
+// Enabling cors. I assume this is what is meant by "must be accessible for external clients." from README
+app.use(cors());
 
 const server = new ApolloServer({
   typeDefs,
