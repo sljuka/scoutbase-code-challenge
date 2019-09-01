@@ -26,6 +26,7 @@ const typeDefs = gql`
 
   type Movie {
     id: ID!
+    scoutbase_rating: String!
     title: String!
     year: String!
     rating: Float!

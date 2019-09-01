@@ -24,7 +24,12 @@ const resolvers = {
     directors: movie =>
       movie.directors.map(directorId =>
         directors.find(({ id }) => id === directorId)
-      )
+      ),
+
+    scoutbase_rating: (_movie, _params, context) => {
+      if (!context.user) throw new Error("Not authorized");
+      return (Math.floor(Math.random() * 41 + 50) / 10).toString();
+    }
   },
 
   Actor: {
